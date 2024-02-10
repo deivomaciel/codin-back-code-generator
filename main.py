@@ -6,7 +6,11 @@ import os
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods = ['GET'])
+def home():
+    return "I'm alive!"
+
+@app.route('/getqrcode', methods = ['POST'])
 def getCode():
     if request.is_json:
         data = request.get_json()
