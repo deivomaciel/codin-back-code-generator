@@ -1,4 +1,4 @@
-from utils.classes import QRcode
+from src.utils.classes import QRcode
 from flask import Flask, request, jsonify
 import base64
 import time
