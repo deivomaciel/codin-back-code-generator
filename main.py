@@ -20,14 +20,9 @@ def getCode():
         try:
             timestamp = int(time.time())
             fileName = f'qrcode_{timestamp}'
-            newCode = QRcode(data['link'], fileName)
-            newCode.GenerateCode()
-
-            with open(newCode.filePath, "rb") as img_file:
-                imageBase64 = base64.b64encode(img_file.read()).decode('utf-8')
-
-            os.remove(newCode.filePath)
-            return jsonify({'message': 'success', 'qr_code_base64': imageBase64}), 200
+            newCode = QRcode(data['link'])
+            qrcodeBase64 =  newCode.GenerateCode()
+            return jsonify({'message': 'success', 'qr_code_base64': qrcodeBase64}), 200
         
         except Exception as e:
             return jsonify({'message': f'Error: {str(e)}'}), 500
