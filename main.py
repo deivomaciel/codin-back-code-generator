@@ -1,10 +1,10 @@
 from src.utils.classes import QRcode
 from flask import Flask, request, jsonify
-import base64
+from flask_cors import CORS
 import time
-import os
 
 app = Flask(__name__)
+cors = CORS(app)
 
 @app.route('/', methods = ['GET'])
 def home():
